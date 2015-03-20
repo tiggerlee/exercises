@@ -1,0 +1,5 @@
+steps	*x			*y
+init	a			b
+step1	a			a^b
+step2	a^(a^b)=(a^a)^b=b	a^b
+step3	b			b^(a^b)=a^(b^b)=a

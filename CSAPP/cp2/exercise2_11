@@ -1,0 +1,6 @@
+A. first: k
+   last: k + 1
+
+B. 因为最后一次循环，对于长度为2k的数组来说，first和last都是k，它两相等所以异或的结果为0
+
+C. 将for中的 first <= last 修改为 first < last 即可
