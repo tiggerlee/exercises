@@ -9,6 +9,6 @@ int bool_or(int x, int y)
 
 int bool_xor(int x, int y)
 {
-  int result = (bic y x);
+  int result = bis(bic(x,y), bic(y,c));
   return result;
 }
