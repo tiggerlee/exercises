@@ -1,26 +1,19 @@
-(define (cbrt-iter guess x)
-  (if (good-enough? guess x)
-       guess
-       (cbrt-iter (improve guess x)
-                        x)))
+(define (cube-root-iter guess prev-guess x)
+  (if (good-enough? guess prev-guess)
+      guess
+      (cube-root-iter (improve guess x) guess x)))
 
-(define (good-enough? guess x)
-  (if (< (abs (- guess (improve guess x))) 0.0000000000000000000000001)
-       #t
-       #f))
+(define (good-enough? guess prev-guess)
+  (< (abs (- guess prev-guess))
+     (abs (* guess 0.001))))
 
 (define (improve guess x)
-  (/ (+ (/ x (* guess guess)) (* 2 guess))
-      3))
+  (define (square x)
+    (* x x))
+  (/ (+ (/ x
+	   (square guess))
+	(* 2 guess))
+     3))
 
-(define (cbrt x)
-  (cbrt-iter 1.0 x))
-
-(define (cube x)
-  (* x x x))
-
-(cbrt (cube 0.333323423412))
-(cbrt (cube 99999999999999))
-(cbrt 8)
-(cbrt -0.0000000000008)
-(cbrt 80000000000000000000000000000000000000000000000000)
+(define (cube-root x)
+  (cube-root-iter 1.0 0.0 x))

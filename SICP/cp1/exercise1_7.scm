@@ -8,9 +8,8 @@
   (/ (+ x y) 2))
 
 (define (good-enough? guess x)
-  (if (< (abs (- guess (improve guess x))) 0.0000000000000000000000001)
-       #t
-       #f))
+  (< (abs (- (improve guess x) guess))
+     (* guess 0.001)))
 
 (define (improve guess x)
   (average guess (/ x guess)))
