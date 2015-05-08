@@ -16,3 +16,7 @@
 
 [The little schemer](http://mitpress.mit.edu/books/little-schemer)的练习解答
 
+## K&R
+The C Programming Language, 2nd Edition 的练习解答
+
+部分的解答我参考了[K&R2 solutions](http://clc-wiki.net/wiki/K%26R2_solutions)
