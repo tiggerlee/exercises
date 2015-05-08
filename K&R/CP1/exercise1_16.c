@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define MAXLINE 1000
+#define MAXLINE 10
 
 int getl(char s[], int lim);
 void copy(char to[], char from[]);
@@ -14,6 +14,12 @@ int main()
   max = 0;
 
   while ((len = getl(line, MAXLINE)) > 0) {
+    if (line[len-1] != '\n') {
+      int c;
+      while ((c = getchar()) != '\n') {
+	++len;
+      }
+    }
     if (len > max) {
       max = len;
       copy(longest, line);
@@ -21,8 +27,9 @@ int main()
   }
 
   if (max > 0) {
-    printf("Max line is: %s", longest);
+    printf("The longest line is: %s", longest);
   }
+
   return 0;
 }
 
