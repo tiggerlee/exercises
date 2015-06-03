@@ -18,7 +18,7 @@
 
 [The little schemer](http://mitpress.mit.edu/books/little-schemer)的练习解答
 
-部分的解答我参考了[pkrumins/the-little-schemer][https://github.com/pkrumins/the-little-schemer]的解答
+部分的解答我参考了[pkrumins/the-little-schemer](https://github.com/pkrumins/the-little-schemer)的解答
 
 ## K&R
 The C Programming Language, 2nd Edition 的练习解答
