@@ -12,11 +12,13 @@
 
 深入理解计算机操作系统([CSAPP](http://csapp.cs.cmu.edu/public/instructors.html))的练习解答
 
-第二章家庭作业的解答参考了[](http://lambda.cool/wiki/doku.php?id=answers:csapp:start)的解答
+第二章家庭作业的解答参考了[LAMBDA.COOL](http://lambda.cool/wiki/doku.php?id=answers:csapp:start)的解答
 
 ## TLS
 
 [The little schemer](http://mitpress.mit.edu/books/little-schemer)的练习解答
+
+部分的解答我参考了[pkrumins/the-little-schemer][https://github.com/pkrumins/the-little-schemer]的解答
 
 ## K&R
 The C Programming Language, 2nd Edition 的练习解答
