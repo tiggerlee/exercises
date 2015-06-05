@@ -1,10 +1,18 @@
-#include <stdio.h>
-
+/*
+ * 首先获取x的最高位的值 sign ＝ 1 或者 0
+ * 然后用0 － sign 如果sign为1 则得到一个全部位都为1的数，若为0则全部位为0
+ * 然后将上面的结果左移w－k位
+ * 然后用｜计算上面左移的结果和刚开始逻辑右移得到结果，就得到了最终结果
+ */
 int sra(int x, int k) {
   /* Perform shift logically */
   int xsrl = (unsigned) x >> k;
   int w = sizeof(int) * 8;
-  return xsrl;
+  unsigned tmp = 1 << (w - 1);
+  unsigned sign = tmp == (x & tmp);
+  int mask = (0 - sign) << (w - k);
+  int result = xsrl | mask;
+  return result;
 }
 
 /*
@@ -22,19 +30,7 @@ int srl(unsigned x, int k) {
    * 然后用上面生成的数值-1，得到一个右边开始k位为0，剩余位为1的值
    * 这样就构造出了需要的数值，用来和 xsra 执行 & 操作
    */
-  unsigned mark = (1 << (w - k)) - 1;
-  unsigned result = xsra & mark;
+  unsigned mask = (1 << (w - k)) - 1;
+  unsigned result = xsra & mask;
   return result;
-}
-
-int main() {
-  int pos_num = 0xFFFF;
-  int neg_num = -1;
-  int shift = 9;
-  sra(pos_num, shift);
-  sra(neg_num, shift);
-  srl(pos_num, shift);
-  srl(neg_num, shift);
-  printf("%x\n", neg_num >> shift);
-  return 0;
 }
