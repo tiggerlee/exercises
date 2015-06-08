@@ -12,7 +12,7 @@
 
 深入理解计算机操作系统([CSAPP](http://csapp.cs.cmu.edu/public/instructors.html))的练习解答
 
-做作业的过程中有部分参考了[mofaph同学的解答](https://github.com/mofaph/csapp)
+做作业的过程中有部分参考了[mofaph同学的解答](https://github.com/mofaph/csapp) 和 [yang_f_k](http://blog.csdn.net/yang_f_k) 的解答。
 
 第二章家庭作业的解答参考了[LAMBDA.COOL](http://lambda.cool/wiki/doku.php?id=answers:csapp:start)的解答
 
