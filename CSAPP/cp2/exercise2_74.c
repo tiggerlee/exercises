@@ -11,7 +11,7 @@
 int tsub_ok(int x, int y) {
   int result = x - y;
   /*
-   * 因为INT_MIN为10...0，即除了最高位为1，其他都为0，所以可以使用 x & INT_MIN来判断x的符号，等于0为正数，其他为负数
+   * 因为INT_MIN为[10...0]，即除了最高位为1，其他都为0，所以可以使用 x & INT_MIN来判断x的符号，等于0为正数，否则则为负数
    */
   int pos_overlay = !(x & INT_MIN) && (y & INT_MIN) && (result & INT_MIN);
   int neg_overlay = (x & INT_MIN) && !(y & INT_MIN) && !(result & INT_MIN);
