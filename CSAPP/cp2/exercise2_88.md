@@ -16,7 +16,11 @@ double dz = (double) z;
 对于下列的每个C表达式，你要指出表达式是否总是为1。如果它总是为1，描述其中的数学原理。否则，列举出使它为0的参数的例子。请注意，不能使用IA32机器运行GCC来测试你的答案，因为对于float和double，它使用的都是80位的扩展精度表示。
 
 A. (double)(float) x == dx // 当x = TMax时，超出了float的表示范围
+
 B. dx + dy == (double) (x+y) // 当x+y发生溢出的时候，dx+dy没有溢出的时候不为1，因为double表示的值范围比int大
+
 C. dx + dy + dz + dz + dy + dx // dx=1, dy=1e20, dz=1e20, 因为浮点运算无结合性
+
 D. dx * dy * dz = dz * dy * dx // 不是总为1，因为浮点运算无结合性，运算结果可能有舍入
+
 E. dx / dx == dy / dy // dx 或者 dy为0时不成立
