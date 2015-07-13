@@ -1,18 +1,23 @@
 #include <stdio.h>
 
+#define FIRSTBLANK 1
+#define NOTFIRSTBLANK 0
+
 main()
 {
-  int c, count;
+  int c, position;
 
-  count = 0;
+  position = NOTFIRSTBLANK;
   while ((c = getchar()) != EOF) {
     if (c != ' ') {
       putchar(c);
-      count = 0;
+      if (position == NOTFIRSTBLANK)
+        position = FIRSTBLANK;
     } else {
-      if (count == 0)
-	putchar(c);
-      ++count;
+      if (position == FIRSTBLANK) {
+        putchar(c);
+        position = NOTFIRSTBLANK;
+      }
     }
   }
 }
