@@ -11,9 +11,8 @@ int main()
   char line[MAX];
 
   while ((len = getl(line, MAX)) > 0) {
-    printf("Before remove trailing blanks and tabs:\n");
-    printf("%s", line);
-    printf("Charaters in char array:\n");
+    printf("Before remove trailing blanks and tabs: %s", line);
+    printf("Charaters in char array: ");
     int j;
     for (j = 0; j < strlen(line); ++j) {
       printf(" %d ", line[j]);
@@ -33,15 +32,20 @@ int main()
     }
 
     if (len > 2) {
-      printf("After remove trailing blanks and tabs:\n");
-      printf("%s", line);
-      printf("Charaters in char array:\n");
+      printf("After remove trailing blanks and tabs: %s", line);
+      printf("Charaters in char array: ");
       for (j = 0; j < strlen(line); ++j) {
 	printf(" %d ", line[j]);
       }
+
+      printf("\n\n");
     }
   }
 }
+
+int remove_trailing_blank(char s[], int len) {
+}
+  
 
 int getl(char s[], int lim)
 {
