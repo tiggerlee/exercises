@@ -1,23 +1,41 @@
-(define (sqrt-iter guess x)
-  (if (good-enough? guess x)
-       guess
-       (sqrt-iter (improve guess x)
-                        x)))
+#lang sicp
+
+(define (sqrt-iter x guess)
+  (if (good-enough? guess (improve x guess))
+      (improve x guess)
+      (sqrt-iter x (improve x guess))))
+
+(define (improve x guess)
+  (average (/ x guess)
+           guess))
 
 (define (average x y)
   (/ (+ x y) 2))
 
-(define (good-enough? guess x)
-  (< (abs (- (improve guess x) guess))
-     (* guess 0.001)))
+(define (square x)
+  (* x x))
 
-(define (improve guess x)
-  (average guess (/ x guess)))
+(define (good-enough? old-guess guess)
+  (< (/ (abs (- old-guess
+             guess))
+        old-guess)
+     0.0001))
 
-(define (mysqrt x)
-  (sqrt-iter 1.0 x))
+(define (sqrt x)
+  (sqrt-iter x (/ x 2.0)))
 
-(mysqrt 0.000000009)
-(mysqrt 4)
-(mysqrt 2)
-(mysqrt 900000000000000000000000000000000000000000000000)
+
+
+(square 0.00000023123)
+
+(sqrt (square 0.00000023123))
+
+(- 0.00000023123 (sqrt (square 0.00000023123)))
+
+
+
+(square 123123123123123123111323)
+
+(sqrt (square 123123123123123123111323))
+
+(- 123123123123123123111323 (sqrt (square 123123123123123123111323)))

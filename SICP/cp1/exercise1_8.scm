@@ -1,19 +1,29 @@
-(define (cube-root-iter guess prev-guess x)
-  (if (good-enough? guess prev-guess)
-      guess
-      (cube-root-iter (improve guess x) guess x)))
+#lang sicp
 
-(define (good-enough? guess prev-guess)
-  (< (abs (- guess prev-guess))
-     (abs (* guess 0.001))))
+(define (square x)
+  (* x x))
+
+(define (cube x)
+  (* x x x))
+
+(define (cube-root-iter x guess)
+  (if (good-enough? (improve guess x) guess)
+      (improve guess x)
+      (cube-root-iter x (improve guess x))))
+
+(define (good-enough? guess old-guess)
+  (< (/ (abs (- guess old-guess))
+        old-guess)
+     0.0001))
 
 (define (improve guess x)
-  (define (square x)
-    (* x x))
-  (/ (+ (/ x
-	   (square guess))
-	(* 2 guess))
+  (/ (+ (/ x (square guess))
+        (* 2 guess))
      3))
 
 (define (cube-root x)
-  (cube-root-iter 1.0 0.0 x))
+  (cube-root-iter x (/ x 3.0)))
+
+(cube-root (cube 123))
+(cube-root (cube 0.0000000123321123312))
+(cube-root (cube 123123123123123111232213))

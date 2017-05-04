@@ -1,9 +1,11 @@
+#lang sicp
+
 (define (square x)
   (* x x))
 
 (define (sum-of-squares x y)
-  (+ (square x) 
-       (square y)))
+  (+ (square x)
+     (square y)))
 
 (define (max-of-two-nums x y)
   (if (> x y) x y))
