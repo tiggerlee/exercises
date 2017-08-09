@@ -1,12 +1,19 @@
-(define (square x)
-  (* x x))
+#lang sicp
 
-(define (fast-expt b n)
-  (define (iter a b n)
-    (cond
-      ((= n 0) a)
-      ((even? n) (iter a (square b) (/ n 2)))
-      (else (iter (* a b) b (- n 1)))))
-  (iter 1 b n))
+(define (square n)
+  (* n n))
 
-(fast-expt 2 8)
+(define (expt b n)
+  (define (eiter product counter)
+    (cond ((= counter 0) 1)
+          ((even? counter) (eiter (square product)
+                                  (/ counter 2)))
+          (else (* product (eiter product
+                                  (- counter 1))))))
+  (eiter b n))
+    
+
+(expt 3 3)
+(expt 3 0)
+(expt 3 1)
+(expt 3 100)

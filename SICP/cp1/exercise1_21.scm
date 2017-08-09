@@ -1,3 +1,5 @@
+#lang sicp
+
 (define (square x)
   (* x x))
 
@@ -16,5 +18,5 @@
   (= n (smallest-divisor n)))
 
 (smallest-divisor 199)              ; smallest divisor is 199
-(smallest-divisor 1999)            ; smallest divisor is 1999
-(smallest-divisor 19999)          ; smallest divisor is 7
+(smallest-divisor 1999)             ; smallest divisor is 1999
+(smallest-divisor 19999)            ; smallest divisor is 7

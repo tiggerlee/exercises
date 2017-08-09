@@ -1,15 +1,21 @@
-(define (double n)
-  (* 2 n))
+#lang sicp
 
-(define (halve n)
+(define (double n)
+  (+ n n))
+
+(define (hvalue n)
   (/ n 2))
 
-(define (fast-times n m)
-  (define (iter a n m)
-    (cond
-      ((= m 0) a)
-      ((even? m) (iter a (double n) (halve m)))
-      (else (iter (+ a n) n (- m 1)))))
-  (iter 0 n m))
+(define (* a b)
+  (cond ((= b 0) 0)
+        ((even? b) (double (* a (hvalue b))))
+        (else (+ a (* a (- b 1))))))
 
-(fast-times 4 5)
+(* 1 3)
+(* 7 8)
+(* 0 7)
+(* 7 0)
+(* 7 1)
+(* 7 3)
+(* 7 2)
+(* 7 5)

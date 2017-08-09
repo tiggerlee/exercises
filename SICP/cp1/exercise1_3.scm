@@ -3,17 +3,21 @@
 (define (square x)
   (* x x))
 
-(define (sum-of-squares x y)
+(define (sum-of-square x y)
   (+ (square x)
      (square y)))
 
-(define (max-of-two-nums x y)
+(define (max x y)
   (if (> x y) x y))
 
+(define (min x y)
+  (if (< x y) x y))
+
 (define (f x y z)
-  (if (> x y)
-     (sum-of-squares x (max-of-two-nums y z))
-     (sum-of-squares y (max-of-two-nums x z))))
+  (sum-of-square (max x y)
+                 (max (min x y)
+                      z)))
+
 
 (f 1 2 3) ;=(sum-of-squares 2 3)=13
 (f 1 3 2) ;=(sum-of-squares 3 2)=13
