@@ -3,16 +3,16 @@
 (define (double n)
   (+ n n))
 
-(define (hvalue n)
+(define (halve n)
   (/ n 2))
 
+; iterative
 (define (* a b)
-  (define (*iter sum counter)
-    (cond ((= counter 0) 0)
-          ((even? counter) (*iter (double sum)
-                                  (hvalue counter)))
-          (else (+ sum (*iter sum (- counter 1))))))
-  (*iter a b))
+  (define (iter r a b)
+    (cond ((= b 0) r)
+          ((even? b) (iter r (double a) (halve b)))
+          (else (iter (+ r a) a (- b 1)))))
+  (iter 0 a b))
 
 (* 1 3)
 (* 7 8)
