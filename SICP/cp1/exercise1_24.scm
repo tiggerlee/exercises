@@ -1,5 +1,9 @@
-; 在使用了费马小定理之后对于1000 10000 100000 1000000 10000000的测试结果为：4 5 7 8 9
-; 虽然没有严格按照logn的规律增长，但是还在log的范围之中
+#lang sicp
+; http://community.schemewiki.org/?sicp-ex-1.24
+(#%require (lib "27.ss" "srfi"))
+
+(define (square n)
+  (* n n))
 
 (define (expmod base exp m)
   (cond ((= exp 0) 1)
@@ -13,7 +17,7 @@
 (define (fermat-test n)
   (define (try-it a)
     (= (expmod a n n) a))
-  (try-it (+ 1 (random (- n 1)))))
+  (try-it (+ 1 (random-integer (- n 1)))))
 
 (define (prime? n)
   (define (fast-prime? n times)
@@ -22,22 +26,30 @@
 	  (else #f)))
   (fast-prime? n 10))
 
-(define (next-odd n)
-  (if (odd? n)
-      (+ n 2)
-      (+ n 1)))
+(define (report-prime n elapsed-time)
+  (newline)
+  (display n)
+  (display " *** ")
+  (display elapsed-time))
 
-(define (find-prime n c)
-  (let ((a 0))
-    (cond ((= a c) (display "Done"))
-	  ((prime? n)
-	   (display n)
-	   (newline)
-	   (find-prime (next-odd n) (- c 1)))
-	  (else (find-prime (next-odd n) c)))))
+(define (start-prime-test n start-time)
+  (if (prime? n)
+      (report-prime n (- (runtime) start-time))
+      #f))
 
 (define (time-prime-test n)
-  (let ((start-time (real-time-clock)))
-    (find-prime n 3)
-    (newline)
-    (display (- (real-time-clock) start-time))))
+  (start-prime-test n (runtime)))
+
+(define (search-for-primes n counter)
+  (define (search n c)
+    (if (> c 0)
+      (if (time-prime-test n)
+          (search (+ n 2) (- c 1))
+          (search (+ n 2) c))
+          "Computation complete"))
+  (if (even? n)
+      (search (+ n 1) counter)
+      (search n counter)))
+
+(search-for-primes 100000000000000005670000000000000000 3)
+(search-for-primes 1000000000000000000432000000000000000000000000000000000000000000000000000000000000 3)
