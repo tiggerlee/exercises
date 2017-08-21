@@ -7,9 +7,12 @@
   (if (> a b)
       0
       (+ (term a)
-	 (sum term (next a) next b))))
+	       (sum term (next a) next b))))
 
-
+(define (integral f a b dx)
+  (define (add-dx x) 
+    (+ x dx))
+  (* (sum f (+ a (/ dx 2.0)) add-dx b) dx))
 
 ; 解答参考 http://sicp.readthedocs.io/en/latest/chp1/29.html
 (define (simpson f a b n)
@@ -23,14 +26,13 @@
   (define (term k)
     (* (factor k)
        (y k)))
-  (define (next k)
-    (+ k 1))
-
   (if (not (even? n))
       (display "n can't be odd")
       (* (/ h 3)
-         (sum term (exact->inexact 0) next n))))
+         (sum term (exact->inexact 0) inc n))))
                 
+(integral cube 0 1 0.01) ; 0.24998750000000042
+(integral cube 0 1 0.001); 0.249999875000001
 (simpson cube 0 1 100)   ; 0.24999999999999992
 (simpson cube 0 1 1000)  ; 0.2500000000000003
 (simpson cube 0 1 999)   ; n can't be odd
