@@ -6,6 +6,7 @@
       1
       (* (term a)
          (product-recu term (next a) next b))))
+<<<<<<< HEAD
 
 ; 迭代版本
 (define (product term a next b)
@@ -19,6 +20,28 @@
 
 (define (factorial n)
   (product identity 1 inc n))
+=======
+
+; 迭代版本
+(define (product term a next b)
+  (define (iter a result)
+    (if (> a b)
+        result
+        (iter (next a) (* result (term a)))))
+  (iter a 1))
+
+(define (identity x) x)
+
+(define (factorial n)
+  (product identity 1 inc n))
+
+(factorial 4)  ; 24
+(factorial 7)  ; 5040
+(factorial 10) ; 3628800
+
+
+; 解答参考了 http://sicp.readthedocs.io/en/latest/chp1/31.html
+>>>>>>> 69b324a4d22326293e3bae9780bca37589bea4f4
 
 (factorial 4)  ; 24
 (factorial 7)  ; 5040
