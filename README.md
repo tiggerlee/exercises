@@ -8,6 +8,8 @@
 
 大部分的解答我参考了[SICP 解题集](http://sicp.readthedocs.org/en/latest/index.html#) 以及[sicp-solutions](http://community.schemewiki.org/?sicp-solutions)
 
+Scheme的解释器我使用了[Racket](http://racket-lang.org)加上[插件](http://docs.racket-lang.org/sicp-manual/index.html?q=sicp#%28part._.Introduction_to_the__lang_sicp_language%29)
+
 ## CSAPP（深入理解计算机系统）
 
 深入理解计算机操作系统([CSAPP](http://csapp.cs.cmu.edu/public/instructors.html))的练习解答
