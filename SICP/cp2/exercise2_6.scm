@@ -26,6 +26,7 @@
     (lambda (x) 
       ((a f) ((b f) x))))) 
 
+; 使用替换方法展开 ((a f) ((b f) x))
 ; (add two one)
 ; ((a f) ((b f) x))
 ; (((lambda (f) (lambda (x) (f (f x)))) f) (((lambda (f) (lambda (x) (f x))) f) x))
