@@ -116,6 +116,8 @@
 (print-deque q)             ; (c d e f)
 (front-insert-deque! q 'b)
 (print-deque q)             ; (b c d e f)
+(front-deque q)             ; b
+(rear-deque q)              ; f
 (front-delete-deque! q)
 (print-deque q)             ; (c d e f)
 (rear-delete-deque! q)
