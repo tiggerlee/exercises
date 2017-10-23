@@ -26,3 +26,7 @@ Scheme的解释器我使用了[Racket](http://racket-lang.org)加上[SICP插件]
 ## [K&R](https://book.douban.com/subject/1139336/)（The C Programming Language, 2nd Edition）
 
 部分解答我参考了[K&R2 solutions](http://clc-wiki.net/wiki/K%26R2_solutions)
+
+## [程序员的算法趣题](http://www.ituring.com.cn/book/1814)
+
+使用kotlin完成本书的练习
