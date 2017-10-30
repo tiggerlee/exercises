@@ -248,6 +248,9 @@
 (define sum (make-wire))
 (define carry (make-wire))
 
+; 参考这里的解释 http://sicp.readthedocs.io/en/latest/chp3/31.html
+; 如果在 add-action 不调用加入的过程的话，那么这个过程不会被加入到 agenda 的待处理列表中
+; 调用 propagate 时，agenda 待处理列表为空
 (probe 'sum sum)
 (probe 'carry carry)
 (half-adder input1 input2 sum carry)
