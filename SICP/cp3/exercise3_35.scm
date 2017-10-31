@@ -201,4 +201,4 @@
 (probe "B" B)
 (set-value! A 4 'user) ; B 可以得到正确的值16
 (forget-value! A 'user)
-(set-value! B 16 'user) ; A 得不到正确的值，不会被计算，因为只设定 B 的值，不满足 multiplier 的求值条件，即必须知道两个乘数或者其中一个乘数和积
+(set-value! B 16 'user) ; A 可以得到正确的值4
