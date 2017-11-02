@@ -17,7 +17,7 @@
       true
       (begin (set-car! cell true)
              false)))
-
+; 基于互斥元
 (define (make-semaphore n)
   (let ((the-mutex (make-mutex)))
     (define (acquire)
@@ -38,6 +38,7 @@
             ((eq? m 'release) (release))))
     dispatch))
 
+; 基于原子的 test-and-set!
 (define (make-semaphore-atom n)
   (define (acquire)
     (if (test-and-set!)
