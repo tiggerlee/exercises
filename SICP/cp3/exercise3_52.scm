@@ -1,28 +1,5 @@
 #lang sicp
 
-(define (memo-proc proc)
-  (let ((already-run? false) (result false))
-    (lambda ()
-      (if (not already-run?)
-          (begin (set! result (proc))
-                 (set! already-run? true)
-                 result)
-          result))))
-
-(define (delay exp)
-  (memo-proc (lambda () exp)))
-
-(define (force delayed-object)
-  (delayed-object))
-
-(define (stream-cons a b)
-  (cons a (delay b)))
-
-(define the-empty-stream '())
-
-(define (stream-null? stream)
-  (null? stream))
-
 (define (stream-car stream)
   (car stream))
 
@@ -32,13 +9,13 @@
 (define (stream-map proc stream)
   (if (stream-null? stream)
       the-empty-stream
-      (stream-cons (proc (stream-car stream))
+      (cons-stream (proc (stream-car stream))
                    (stream-map proc (stream-cdr stream)))))
 
 (define (stream-enumerate-interval low high)
   (if (> low high)
       the-empty-stream
-      (stream-cons
+      (cons-stream
         low
         (stream-enumerate-interval (+ low 1)
                                    high))))
@@ -66,7 +43,7 @@
   (cond ((stream-null? stream)
           the-empty-stream)
         ((pred (stream-car stream))
-          (stream-cons
+          (cons-stream
             (stream-car stream)
             (stream-filter pred (stream-cdr stream))))
         (else
@@ -75,12 +52,19 @@
             (stream-filter pred (stream-cdr stream))))))
 
 (define sum 0)
+sum ; 0
 (define (accum x)
   (set! sum (+ x sum))
   sum)
+sum ; 0
 (define seq (stream-map accum (stream-enumerate-interval 1 20)))
+sum ; 1
 (define y (stream-filter even? seq))
+sum ; 6
 (define z (stream-filter (lambda (x) (= (remainder x 5) 0))
                          seq))
+sum ; 10
 (stream-ref y 7)
+sum ; 136
 (stream-display z)
+sum ; 210

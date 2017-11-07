@@ -1,28 +1,5 @@
 #lang sicp
 
-(define (memo-proc proc)
-  (let ((already-run? false) (result false))
-    (lambda ()
-      (if (not already-run?)
-          (begin (set! result (proc))
-                 (set! already-run? true)
-                 result)
-          result))))
-
-(define (delay exp)
-  (memo-proc (lambda () exp)))
-
-(define (force delayed-object)
-  (delayed-object))
-
-(define (stream-cons a b)
-  (cons a (delay b)))
-
-(define the-empty-stream '())
-
-(define (stream-null? stream)
-  (null? stream))
-
 (define (stream-car stream)
   (car stream))
 
@@ -32,7 +9,7 @@
 (define (stream-map proc . argstreams)
   (if (stream-null? (car argstreams))
       the-empty-stream
-      (stream-cons
+      (cons-stream
        (apply proc (map stream-car argstreams))
        (apply stream-map
               (cons proc (map stream-cdr argstreams))))))
@@ -40,7 +17,7 @@
 (define (stream-enumerate-interval low high)
   (if (> low high)
       the-empty-stream
-      (stream-cons
+      (cons-stream
        low
        (stream-enumerate-interval (+ low 1) high))))
 
