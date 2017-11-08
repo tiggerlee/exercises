@@ -12,6 +12,7 @@ Scheme的解释器我使用了[Racket](http://racket-lang.org)加上[SICP插件]
 * [SICP 解题集](http://sicp.readthedocs.org/en/latest/index.html#) 
 * [sicp-solutions](http://community.schemewiki.org/?sicp-solutions)
 * [inchmeal's blog](http://www.inchmeal.io/sicp/) 
+* [Eli Bendersky's website](https://eli.thegreenplace.net/tag/sicp)
 
 ## [CSAPP](http://csapp.cs.cmu.edu/)（深入理解计算机系统）
 
