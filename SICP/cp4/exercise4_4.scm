@@ -96,11 +96,11 @@
 ;     false)
 (define (and->if ops)
   (if (no-operands ops)
-      true
+      'true
       (make-if
         (first-operand ops)
         (and->if (rest-operands ops))
-        false)))
+        'false)))
 
 (define (eval-or-use-if ops env)
   (or->if ops))
@@ -115,10 +115,10 @@
 ;             ...
 (define (or->if ops)
   (if (no-operands ops)
-      false
+      'false
       (make-if
         (first-operand ops)
-        true
+        'true
         (or->if (rest-operands ops)))))
 
 (define (eval-if exp env)
