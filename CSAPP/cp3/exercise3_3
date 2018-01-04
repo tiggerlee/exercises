@@ -1,0 +1,7 @@
+movb $0xF, (%ebx) // %ebx不能作为内存地址，%eax最大可以存储的是一个四字节的数字，x86-64需要8个字节作为内存地址
+movl %rax, (%rsp) // 应该使用 movq，操作符和操作数的长度不匹配
+movw (%rax), 4(%rsp) // 操作源和操作目标不能都为内存地址
+movb %al, %sl // 没有 %sl 寄存器
+movq %rax, $0x123 // 操作目标不能为立即数，只能为寄存器或者内存地址
+movl %eax, %rdx // %rdx 和 movl 大小不匹配
+movb %si, 8(%rbp) // %si 是一个16字节的寄存器，不应该使用movb，应该使用movw
