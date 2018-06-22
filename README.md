@@ -34,6 +34,6 @@ Scheme的解释器我使用了[Racket](http://racket-lang.org)加上[SICP插件]
 
 ## [算法设计指南](https://book.douban.com/subject/27092363/)
 
-部分解答参考了[algorist.com](http://algorist.com/algowiki/index.php/The_Algorithms_Design_Manual_(Second_Edition)) 的解答。
+部分解答参考了 http://algorist.com/algowiki/index.php/The_Algorithms_Design_Manual_(Second_Edition) 的解答。
 
 文字编辑器使用了 [texmacs](http://www.texmacs.org/tmweb/home/welcome.en.html)，可以很方便的插入数学公式，是个所见即所得的编辑器。
