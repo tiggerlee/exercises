@@ -1,3 +1,5 @@
+package chapter1
+
 import kotlin.math.absoluteValue
 import kotlin.math.sign
 import kotlin.test.assertEquals
@@ -6,7 +8,7 @@ import kotlin.test.assertFailsWith
 // 1-28. Write a function to perform integer division without using either the / or * operators. Find a fast way to do it.
 fun divide(m: Int, n: Int): Int {
     if (n == 0) {
-        throw ArithmeticException("/ divide 0")
+        throw ArithmeticException("/ chapter1.divide 0")
     }
     if (m.absoluteValue < n.absoluteValue) {
         return 0
